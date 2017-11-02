@@ -1,0 +1,90 @@
+
+//wally
+
+
+import WallyRodriguez_week2_ArrayList.MainAl;
+import java.util.ArrayList;
+
+
+public class AnimalList 
+{
+    private ArrayList<MainAl> animalList;
+    
+
+    
+    public AnimalList() 
+        {
+            animalList = new ArrayList<MainAl>();
+        }
+	// adds animal variable
+    
+    public void add(MainAl mainal)
+        {
+            animalList.add(mainal);
+            System.out.println(mainal + ". Has been added successfully to the list");
+	}
+        
+//removes animal.
+    
+    public void delete(String mainalName)
+        {
+            int index = findMainal(mainalName);
+            
+		if (index != 1) 
+                    {
+			MainAl searchedMainAl = animalList.get(index);
+			animalList.remove(searchedMainAl);
+			System.out.println(mainalName + "has been added successfully from the list");
+                    } 
+                else 
+                    {
+			System.out.println("Animal Missing");
+                    }   
+        }
+        //searches class for animals's information 
+   public int findMainal(String name)
+        {
+            for (int i = 0; i < animalList.size(); i++) 
+               {   
+                    if (animalList.get(i).getName().equalsIgnoreCase(name)) 
+                        {
+                            return i;
+			}
+                }
+            return -1;
+        }
+
+	//it displays the list of the inputted information
+    
+    public void displayList()
+        {
+            if(animalList.size() == 0)
+                {
+                    System.out.println("Empty List");
+                    return;
+                }
+            for (int i = 0; i < animalList.size(); i++) 
+                {
+                    System.out.println(animalList.get(i));
+                }
+        }
+    //animal's information
+    public void edit(String name, String animalColor, boolean ifVertebrate, boolean ifSwim) 
+        {
+            int index = findMainal(name);
+            if (index != -1) 
+                {
+                    MainAl searchedMainal = animalList.get(index);
+                    searchedMainal.setAnimalColor(animalColor);
+                    searchedMainal.setIfVertebrate(ifVertebrate);
+                    searchedMainal.setIfSwim(ifSwim);
+                    animalList.set(index, searchedMainal);
+                    System.out.println(name + "The animal " + name + " update successfully!");
+		} 
+            else 
+                {
+                    System.out.println(name + "Animal not found!");
+                }
+	}
+
+}
