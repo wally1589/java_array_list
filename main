@@ -1,0 +1,69 @@
+
+/**
+ * @author wally
+ */
+
+package WallyRodriguez_week2_ArrayList;
+
+//Strings name and animalColor will be used as variables.
+//Boolean for the ifVertebrate and ifSwin true or false
+
+public class MainAl 
+{
+   String name;
+   String animalColor;
+   boolean ifVertebrate;
+   boolean ifSwim;
+
+ 
+    public MainAl(String name, String animalColor, boolean ifVertebrate, boolean ifSwim)
+        {
+            this.name = name;
+            this.animalColor = animalColor;
+            this.ifVertebrate = ifVertebrate;
+            this.ifSwim = ifSwim;
+	}
+    public String getName() 
+        {
+            return this.name;
+	}
+    public String getAnimalColor() 
+        {
+            return this.animalColor;
+	}
+    public boolean ifVertebrate() 
+        {
+            return this.ifVertebrate;
+	}
+    public boolean ifSwim() 
+        {
+            return this.ifSwim;
+	}
+    public void setName(String name) 
+        {
+            this.name = name;
+	}
+    public void setAnimalColor(String animalcolor) 
+        {
+            this.animalColor = animalcolor;
+	}
+    public void setIfVertebrate(boolean ifvertebrate) 
+        {
+        this.ifVertebrate = ifvertebrate;
+        }
+    public void setIfSwim(boolean ifSwim) 
+        {
+        this.ifSwim = ifSwim;
+        }
+    public String toString()
+        {
+            return " Type: " + name + " | Color: " + animalColor + " |" + (ifVertebrate == true? 
+                    " is a": " not a") + " vertebrate | " + (ifSwim == true? "can swim|":
+                    "cannot swim|");
+	}
+
+    public void setifSwim(boolean ifSwim) {
+        throw new UnsupportedOperationException("Not supported yet."); 
+    }
+
+}
