@@ -1,0 +1,117 @@
+import WallyRodriguez_week2_ArrayList.MainAl;
+import java.util.Scanner;
+
+//interaction with program
+
+//adds animal
+public class AnimalInterface
+{
+    public static AnimalList animalList = new AnimalList();
+
+        public static  void editAnimal(Scanner scanner)
+        {
+            String animalType;
+            String color;
+            boolean vertebrate;
+            boolean swim;
+            String choiceVertibrate;
+            String choiceSwim;
+		
+            scanner.nextLine();
+	System.out.print("Enter the type of Animal to edit: ");
+	animalType = scanner.nextLine();
+	System.out.print("Enter new color of Animal: ");
+	color = scanner.nextLine();
+	System.out.print("Is Animal vertebrate(y/n): ");
+	choiceVertibrate = scanner.nextLine();
+	System.out.print("Can Animal swim(y/n): ");
+	choiceSwim = scanner.nextLine();
+	vertebrate = choiceVertibrate.toLowerCase().equals("y");
+	swim = choiceSwim.toLowerCase().equals("y");
+	animalList.edit(animalType, color, vertebrate, swim);
+	}
+	public static void addMainAl(Scanner scanner)
+        {
+            String name;
+            String color;
+            boolean vertebrate;
+            boolean swim;
+            String choiceVertebrate;
+            String choiceSwim;
+		
+		scanner.nextLine();
+		System.out.print("Enter the type of Animal: ");
+		name = scanner.nextLine();
+		System.out.print("Enter the color of Animal: ");
+		color = scanner.nextLine();
+		System.out.print("Is Animal vertebrate(y/n): ");
+		choiceVertebrate = scanner.nextLine();
+		System.out.print("Can Animal swim(y/n): ");
+		choiceSwim = scanner.nextLine();
+		
+		vertebrate = choiceVertebrate.toLowerCase().equals("y");
+		swim = choiceSwim.toLowerCase().equals("y");
+		
+		
+		MainAl mainal = new MainAl(name, color, vertebrate, swim);
+		
+		animalList.add(mainal);
+	}
+	
+
+    public static void deleteAnimal(Scanner scanner)
+       {
+            String animalType;
+            scanner.nextLine();
+            System.out.println("Enter the type of Animal to delete: ");
+            animalType = scanner.nextLine();
+            animalList.delete(animalType);
+        }
+
+    public static int userMenu(Scanner scanner) 
+            {
+		System.out.println("\n1. Add Animal");
+		System.out.println("2. Edit Animal");
+		System.out.println("3. Delete Animal");
+		System.out.println("4. View Animal List");
+		System.out.println("0. Exit");
+		System.out.print("\nChoose your option [0-4]: ");
+
+		int choice = scanner.nextInt();
+		return choice;
+            }
+
+    public static void main(String args[]) 
+            {
+		Scanner scanner = new Scanner(System.in);
+		int choice;
+		do 
+                    {
+			choice = userMenu(scanner);
+			switch (choice)
+                            {
+                        	case 1:
+				addMainAl(scanner);
+				break;
+                                case 2:
+				editAnimal(scanner);
+				break;
+                                case 3:
+				deleteAnimal(scanner);
+                            	break;
+                                case 4:
+				animalList.displayList();
+				break;
+                        	case 5:
+				System.exit(0);
+                                System.out.println("Thank you for using the"
+                                                    + " ");
+                            }
+                    } 
+                while (choice != 0);
+            }
+
+}
+
+    
+
